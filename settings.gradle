@@ -1,0 +1,3 @@
+rootProject.name = 'coding-dojo-kata-fizzbuzz'
+include 'practice01'
+
