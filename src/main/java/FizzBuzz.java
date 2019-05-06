@@ -1,25 +1,31 @@
 class FizzBuzz {
 
-  String run(int inputNumber) {
-    String result = "";
+  public static final int FIZZ_DIVIDOR = 5;
+  public static final int BUZZ_DIVIDOR = 3;
+  public static final String FIZZ = "fizz";
+  public static final String BUZZ = "buzz";
+  public static final String EMPTY_STRING = "";
+  public static final String BUZZ_CHARACTER = "5";
+  public static final String FIZZ_CHARACTER = "3";
 
-    if(isFizz(inputNumber))
-      result += "Fizz";
-    if(isBuzz(inputNumber))
-      result += "Buzz";
-
-    return result.equals("") ? String.valueOf(inputNumber) : result;
+  public static String run(Integer input) {
+    String result = EMPTY_STRING;
+    if (isFizz(input))
+      result += FIZZ;
+    if (isBuzz(input))
+      result += BUZZ;
+    return result.equals(EMPTY_STRING) ? String.valueOf(input) : result;
   }
 
-  private boolean isBuzz(int inputNumber) {
-    return isDividedBy(inputNumber, 5) || String.valueOf(inputNumber).contains("5");
+  private static boolean isBuzz(Integer input) {
+    return isDividedBy(input, FIZZ_DIVIDOR) || String.valueOf(input).contains(BUZZ_CHARACTER);
   }
 
-  private boolean isFizz(int inputNumber) {
-    return isDividedBy(inputNumber, 3) || String.valueOf(inputNumber).contains("3");
+  private static boolean isFizz(Integer input) {
+    return isDividedBy(input, BUZZ_DIVIDOR) || String.valueOf(input).contains(FIZZ_CHARACTER);
   }
 
-  private boolean isDividedBy(int inputNumber, int dividor) {
-    return (inputNumber % dividor) == 0;
+  private static boolean isDividedBy(Integer input, int i) {
+    return input % i == 0;
   }
 }
